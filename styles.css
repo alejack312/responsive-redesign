@@ -1,20 +1,339 @@
-#logoBar{
-  width: 30vw;
-  height: 100vh;
-}
-#siteLogo{
-  width: 100%;
-}
-body {
+/* CSS for larger screens */
+.mainContainer {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  background-color: #eff2f1;
+  transition: margin-left 0.5s ease-in-out;
 }
-#staffGallery{
-  width: 70vw;
-  display: inherit;
 
+.logo {
+  padding: 10px;
 }
-.galleryImage{
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    #4175b8 0%,
+    #4175b8 78.5%,
+    #2a0c4e 78.5%,
+    #2a0c4e 100%
+  );
+
+  height: auto;
+  width: 15%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 3rem; /* Hide the sidebar by default */
+  border-right: 1px solid #e0e0e0;
+  transition: left 0.5s ease-in-out; /* Add this line */
+}
+
+.sidebar-open {
+  left: 0; /* Show the sidebar when the .sidebar-open class is added */
+}
+
+.menuButton {
+  background: #4175b8;
+  border: none;
+  cursor: pointer;
+}
+
+.main-container-with-menu {
+  margin-left: 250px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.videoThumbnail {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+
+.thumbnail {
   width: 100%;
   height: auto;
-  height: 300px;
+  object-fit: cover;
+}
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  top: 0%;
+  left: 0%;
+}
+
+.overlay-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%; /* Adjust to your needs */
+  height: 20%; /* Adjust to your needs */
+  transform: translate(-50%, -50%);
+}
+
+.lowerHalf {
+  background-color: #eff2f1;
+  height: 50%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 750px 100px;
+  grid-template-columns: 1fr 5% 5% 5% 1fr;
+  align-items: center;
+  justify-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ======================================================================== */
+
+div#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100vw;
+  height: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 3;
+  --middle: 2;
+  --position: 1;
+  pointer-events: none;
+}
+
+div.item {
+  display: flex;
+  text-align: left;
+  padding: 20px;
+  border: 3px solid black;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  width: 40%; /* Change this line */
+  height: 50%; /* Change this line */
+  background-color: white;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-48% * var(--r))); /* Change this line */
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+div.item:nth-of-type(1) {
+  --offset: 1;
+}
+div.item:nth-of-type(2) {
+  --offset: 2;
+}
+div.item:nth-of-type(3) {
+  --offset: 3;
+}
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(1):checked ~ div#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ div#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ div#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ div#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ div#carousel {
+  --position: 5;
+}
+
+
+
+.member-box {
+  display: none;
+}
+
+.member-info {
+  display: none;
+}
+
+.subscribe-button {
+  display: none;
+}
+
+.footer-bar {
+  display: none;
+  width: 100%;
+  height: 4rem;
+  justify-content: right;
+  background-color: #9aaca6;
+}
+
+.footer-bar img {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+/* ======================================================================== */
+
+/* CSS for smaller screens */
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgba(65, 117, 184, 0.6);
+  }
+
+  .videoThumbnail {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .lowerHalf {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 5% 5% 5% 1fr;
+    background: rgba(65, 117, 184, 0.6);
+    margin-bottom: 10%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .footer-bar {
+    display: flex;
+    position: relative;
+    bottom: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+
+  .member-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #eff2f1;
+  }
+
+  .member-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #eff2f1;
+  }
+
+  .member-box-header{
+    align-items: flex-start;
+    font-size: 2rem;
+    width: 80%;
+  }
+
+  .member-info-text {
+    font-size: 1.5rem;
+    width: 80%;
+    margin: 0;
+  }
+
+  .member-info img {
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    border: 2px solid #eff2f1;
+  }
+
+  .subscribe-box {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: auto;
+    width: 80%;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #eff2f1;
+  }
+
+  .subscribe-button {
+    display: flex;
+    background-color: #4175b8;
+    color: #eff2f1;
+    border-radius: 4rem;
+    width: 40%; /* Add this line */
+    height: 50px; /* Add this line */
+    font-size: 1.5rem; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
+  }
+
+  .subscribe-button:hover {
+    background-color: #336699; /* Change the color to your liking */
+    transform: scale(1.1); /* Makes the button slightly larger */
+    transition: all 0.3s ease; /* Smooth transition */
+    font-family: "Ubuntu", sans-serif;
+  }
 }
