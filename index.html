@@ -11,6 +11,9 @@
     <!-- import CSS styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
+  <!-- page content goes into <body> -->
+  <body>
+    <!-- page content goes into <body> -->
 
   <div class="mainContainer">
     <div class="sidebar">
@@ -46,14 +49,21 @@
         <div class="flex">
         <div class="lowerHalf">
 
-            <input type="radio" name="position" />
-            <input type="radio" name="position" checked/>
-            <input type="radio" name="position" />
+          <input type="radio" name="position" id="position1"> 
+          <label for="position1" aria-label="Position 1"></label>
+
+          <input type="radio" name="position" checked id="position2">
+          <label for="position2" aria-label="Position 2"></label>
+
+          <input type="radio" name="position" id="position3">
+          <label for="position3" aria-label="Position 3"></label>
 
             <div id="carousel">
                 <div class="item">
                   
-                    <img src="assets\Opera Snapshot_2024-03-08_192412_www.effectivetogreat.com.png">
+                    <img 
+                    src="assets\Opera Snapshot_2024-03-08_192412_www.effectivetogreat.com.png"
+                    alt="Photo of the Blog Page">
                 
                 </div>
                 <div class="item">
@@ -61,12 +71,14 @@
           
                     <img 
 
-                    src="assets\Opera Snapshot_2024-03-08_192307_www.effectivetogreat.com.png">
+                    src="assets\Opera Snapshot_2024-03-08_192307_www.effectivetogreat.com.png"
+                    alt="Photo of the Mindfulness Labs Page">
                    
                 </div>
                 <div class="item">
              
-                  <img src="assets\Opera Snapshot_2024-03-08_192333_www.effectivetogreat.com.png">
+                  <img src="assets\Opera Snapshot_2024-03-08_192333_www.effectivetogreat.com.png"
+                  alt="Photo of the Research Page">
                 </div>
                
             </div>
@@ -117,24 +129,6 @@
         </div>
         
       
-    
-      <!-- <div className="lowerHalf">
-        <button class="carousel-control prev">
-          <img
-            src="assets\expand_more_black_24dp.svg"
-            alt=""
-            style="transform: rotate(90deg)"
-          />
-        </button>
-
-        <button class="carousel-control next">
-          <img
-            src="assets\expand_more_black_24dp.svg"
-            alt=""
-            style="transform: rotate(-90deg)"
-          />
-        </button> -->
-        <!-- Add more posts as needed -->
         <div class="footer-bar">
           <img src="assets\expand_more_black_24dp.svg" alt="">
         </div>
@@ -145,21 +139,8 @@
     </div>
   </div>
 
-  <!-- page content goes into <body> -->
-  <body>
-    <!-- page content goes into <body> -->
+  
 
-    <script>
-      document
-        .getElementById("menuButton")
-        .addEventListener("click", function () {
-          document
-            .getElementById("sideMenu")
-            .classList.toggle("side-menu-open");
-          document
-            .getElementById("mainContainer")
-            .classList.toggle("main-container-with-menu");
-        });
-    </script>
+   
   </body>
 </html>
